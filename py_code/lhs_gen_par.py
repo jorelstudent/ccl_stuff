@@ -75,8 +75,8 @@ def lhs_par_stan(n_trials):
 	#Now we have the bin lists
 	#We now find the width of each bin using the range of our values
 	h_w = (0.9 - 0.5) / N_trials
-	Omega_cdm_w = (0.4 - 0.1) / N_trials
-	Omega_b_w = (0.10 - 0.01) / N_trials
+	Omega_cdm_w = (0.36 - 0.1) / N_trials
+	Omega_b_w = (0.04 - 0.01) / N_trials
 	A_s_w = (2.5e-9 - 1.5e-9) / N_trials
 	n_s_w = (0.99 - 0.93) / N_trials
 
