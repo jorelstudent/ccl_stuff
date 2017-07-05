@@ -1,25 +1,29 @@
 Reading input parameters
- -> matched budget equations by adjusting Omega_Lambda = 4.725065e-01
+ -> matched budget equations by adjusting Omega_Lambda = 8.013106e-01
 Running CLASS version v2.6.0
 Computing background
- -> age = 11.929461 Gyr
- -> conformal age = 11564.305263 Mpc
-Computing thermodynamics with Y_He=0.2530
- -> recombination at z = 1081.377498
-    corresponding to conformal time = 244.999784 Mpc
-    with comoving sound horizon = 118.685802 Mpc
-    angular diameter distance = 10.457817 Mpc
-    and sound horizon angle 100*theta_s = 1.048525
- -> baryon drag stops at z = 1094.701339
-    corresponding to conformal time = 242.907933 Mpc
-    with comoving sound horizon rs = 117.851010 Mpc
- -> reionization with optical depth = 0.128521
-    corresponding to conformal time = 3345.390211 Mpc
+ -> age = 14.510406 Gyr
+ -> conformal age = 15746.057372 Mpc
+Computing thermodynamics with Y_He=0.2492
+ -> recombination at z = 1083.093759
+    corresponding to conformal time = 303.345780 Mpc
+    with comoving sound horizon = 153.465553 Mpc
+    angular diameter distance = 14.244812 Mpc
+    and sound horizon angle 100*theta_s = 0.993773
+ -> baryon drag stops at z = 1064.660676
+    corresponding to conformal time = 307.399572 Mpc
+    with comoving sound horizon rs = 155.244774 Mpc
+ -> reionization with optical depth = 0.125121
+    corresponding to conformal time = 4913.508382 Mpc
 Computing sources
 Computing primordial spectra (analytic spectrum)
 Computing non-linear matter power spectrum with Halofit (including update Takahashi et al. 2012 and Bird 2014)
+ -> [WARNING:] Halofit non-linear corrections could not be computed at redshift z= 1.70 and higher.
+    This is probably because k_max is too small for Halofit to be able to compute the scale k_NL at this redshift.
+    If non-linear corrections at such high redshift really matter for you,
+    just try to increase P_k_max_h/Mpc or P_k_max_1/Mpc until reaching desired z.
 No harmonic space transfer functions to compute. Transfer module skipped.
 Computing unlensed linear spectra
- -> sigma8=1.05061 (computed till k = 8.15171 h/Mpc)
+ -> sigma8=0.601461 (computed till k = 6.95702 h/Mpc)
 No lensing requested. Lensing module skipped.
 Writing output files in output/nonlin/lhs_nonlin_00026... 
