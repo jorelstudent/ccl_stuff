@@ -1,7 +1,7 @@
 LAST UPDATED 17 July 2017
 
 
-
+Folder cclstuff is Elizabeth Kimura's folder
 
 So this folder has the parameter values, the CLASS and CCL generated data files, and the plots of the 
 statistics. There's also a folder called py_code which has the .py file for creating the statistics.
