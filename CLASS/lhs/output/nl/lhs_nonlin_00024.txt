@@ -18,7 +18,7 @@ Computing thermodynamics with Y_He=0.2405
 Computing sources
 Computing primordial spectra (analytic spectrum)
 Computing non-linear matter power spectrum with Halofit (including update Takahashi et al. 2012 and Bird 2014)
- -> [WARNING:] Halofit non-linear corrections could not be computed at redshift z= 0.81 and higher.
+ -> [WARNING:] Halofit non-linear corrections could not be computed at redshift z= 0.85 and higher.
     This is probably because k_max is too small for Halofit to be able to compute the scale k_NL at this redshift.
     If non-linear corrections at such high redshift really matter for you,
     just try to increase P_k_max_h/Mpc or P_k_max_1/Mpc until reaching desired z.

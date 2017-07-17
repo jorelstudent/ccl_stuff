@@ -75,8 +75,8 @@ def lhs_par_stan(n_trials):
 	#Now we have the bin lists
 	#We now find the width of each bin using the range of our values
 	h_w = (0.9 - 0.5) / N_trials
-	Omega_cdm_w = (0.36 - 0.1) / N_trials
-	Omega_b_w = (0.04 - 0.01) / N_trials
+	Omega_cdm_w = (0.4 - 0.1) / N_trials
+	Omega_b_w = (0.052 - 0.018) / N_trials
 	A_s_w = (2.5e-9 - 1.5e-9) / N_trials
 	n_s_w = (0.99 - 0.93) / N_trials
 
@@ -90,8 +90,8 @@ def lhs_par_stan(n_trials):
 
 	#We then get the center values, don't forget to add by the min value
 	h_val = ((h_bin_arr + 0.5) * h_w) + 0.5
-	Omega_b_val = ((Omega_b_bin_arr + 0.5) * Omega_b_w) + 0.01
-	Omega_cdm_val = ((Omega_cdm_bin_arr + 0.5) * Omega_cdm_w) + 0.1
+	Omega_b_val = (((Omega_b_bin_arr + 0.5) * Omega_b_w) + 0.018)# * h_val ** 2
+	Omega_cdm_val = (((Omega_cdm_bin_arr + 0.5) * Omega_cdm_w) + 0.1)# * h_val**2
 	A_s_val = ((A_s_bin_arr + 0.5) * A_s_w) + 1.5e-9
 	n_s_val = ((n_s_bin_arr + 0.5) * n_s_w) + 0.93
 

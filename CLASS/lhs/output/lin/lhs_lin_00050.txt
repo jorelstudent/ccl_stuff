@@ -20,6 +20,6 @@ Computing primordial spectra (analytic spectrum)
 No non-linear spectra requested. Nonlinear module skipped.
 No harmonic space transfer functions to compute. Transfer module skipped.
 Computing unlensed linear spectra
- -> sigma8=0.378989 (computed till k = 0.181181 h/Mpc)
+ -> sigma8=0.484353 (computed till k = 11.3801 h/Mpc)
 No lensing requested. Lensing module skipped.
 Writing output files in output/lin/lhs_lin_00050... 
