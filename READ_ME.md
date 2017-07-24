@@ -50,5 +50,7 @@ different colors, just change the path, to the specific data files, then you sho
 	comp_CCL_CLASS.py looks at your data files and plots them and the differences (Note the multiplication of factors)
 	comp_stats_v3.py generates your summary statistics from the stats folder which contains the txt output of comp_CCL_CLASS.py
 	load_data.py allows the user to input a file ID, and load the data
+	comp_stats_v4.py generates your summary statistics with a better metric, as well as generate your corner plots
+	corner_source.py has the definitions for your corner plots, it's been altered so that it does scatter plots
 
 FOR ALL OF THESE MAKE SURE TO CHANGE THE PATHS TO THE PROPER ONES
