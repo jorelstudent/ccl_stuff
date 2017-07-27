@@ -69,9 +69,11 @@ def create_lin(index):
     # Set the y axis label
     p.yaxis.axis_label = 'Count (log)'
     comparisonValue = abs(cclPk - classPLin)
+    comparisonValue = abs(cclPk - classPLin) / classPLin
     p2.line(classKLin, comparisonValue, line_width = 2)
-    p2.circle(classKLin, abs(cclPk - classPLin), size = 5, fill_color = "white")
-    return p, p2
+    p2.circle(classKLin, abs(cclPk - classPLin) / classPLin, size = 5, fill_color = "white")
+    plot = gridplot([[p],[p2]])
+    return plot
 
 def create_nl(index):
     # load the data
@@ -126,10 +128,11 @@ def create_nl(index):
     # Set the x axis label
     # Set the y axis label
     p.yaxis.axis_label = 'Count (log)'
-    comparisonValue = abs(cclPk - classPLin)
+    comparisonValue = abs(cclPk - classPLin) / classPLin
     p2.line(classKLin, comparisonValue, line_width = 2)
-    p2.circle(classKLin, abs(cclPk - classPLin), size = 5, fill_color = "white")
-    return p, p2
+    p2.circle(classKLin, abs(cclPk - classPLin) / classPLin, size = 5, fill_color = "white")
+    plot = gridplot([[p],[p2]])
+    return plot
 
 def create_lin_pre(index):
     # load the data
@@ -184,10 +187,11 @@ def create_lin_pre(index):
     # Set the x axis label
     # Set the y axis label
     p.yaxis.axis_label = 'Count (log)'
-    comparisonValue = abs(cclPk - classPLin)
+    comparisonValue = abs(cclPk - classPLin) / classPLin
     p2.line(classKLin, comparisonValue, line_width = 2)
-    p2.circle(classKLin, abs(cclPk - classPLin), size = 5, fill_color = "white")
-    return p, p2
+    p2.circle(classKLin, abs(cclPk - classPLin) / classPLin, size = 5, fill_color = "white")
+    plot = gridplot([[p],[p2]])
+    return plot
 
 def create_nl_pre(index):
     # load the data
@@ -242,10 +246,11 @@ def create_nl_pre(index):
     # Set the x axis label
     # Set the y axis label
     p.yaxis.axis_label = 'Count (log)'
-    comparisonValue = abs(cclPk - classPLin)
+    comparisonValue = abs(cclPk - classPLin) / classPLin
     p2.line(classKLin, comparisonValue, line_width = 2)
-    p2.circle(classKLin, abs(cclPk - classPLin), size = 5, fill_color = "white")
-    return p, p2
+    p2.circle(classKLin, abs(cclPk - classPLin) / classPLin, size = 5, fill_color = "white")
+    plot = gridplot([[p],[p2]])
+    return plot
 
 #LETS IMPLEMENT A CLICK
 @app.route('/')
