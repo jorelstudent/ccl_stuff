@@ -33,7 +33,7 @@ cluster_reg_max = 0.2 # Max for the cluster regime
 
 #Call the original par_stan file, so we can get the trial # (easier in the long run, trust)
 
-data = np.loadtxt('/Users/penafiel/JPL/data/par_stan.txt', skiprows=1)
+data = np.loadtxt('/Users/penafiel/JPL/data/par_stan1.csv', skiprows=1)
 
 
 #Get the trial number into an arr

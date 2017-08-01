@@ -7,7 +7,7 @@ import pdb
 #Creating a different .ini file per trial
 
 #Call the files as string, make the rest floats later
-data = np.genfromtxt('/Users/penafiel/JPL/data/par_stan.txt', dtype='str', skip_header=1)
+data = np.genfromtxt('/Users/penafiel/JPL/data/par_stan1.csv', dtype='str', skip_header=1)
 
 #This gets the trial number into an arr
 trial_arr = data[:,0]

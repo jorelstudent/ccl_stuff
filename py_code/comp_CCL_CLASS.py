@@ -11,7 +11,7 @@ from matplotlib import gridspec
 #Call the original par_var file, so we can get the trial # easier in the long run, trust
 # (Unless there's a more efficient way of calling files)
 
-data = np.genfromtxt('/Users/penafiel/JPL/data/par_stan.txt', dtype='str', skip_header=1)
+data = np.genfromtxt('/Users/penafiel/JPL/data/par_stan1.csv', dtype='str', skip_header=1)
 
 #Gets the trial number into an arr
 trial_arr = data[:,0]
@@ -25,6 +25,7 @@ for i in range(len(trial_arr)):
 	for j in range(len(z_vals)):
 		z_val = z_vals[j]
 		z_path = 'z%s_pk.dat' %z_val
+		z_nl_path = 'z%s_pk_nl.dat' %z_val
 		print 'Performing z_val = ', z_val
 		#For ease in iterating over different z values we use string manipulation (best manipulation)
 		ccl_lin_path = '/Users/penafiel/JPL/CCL-master/data_files/lhs_mpk_lin_%s' %trial
@@ -35,7 +36,7 @@ for i in range(len(trial_arr)):
 		ccl_lin_path += z_path
 		ccl_nl_path += z_path
 		class_lin_path += z_path
-		class_nl_path += z_path
+		class_nl_path += z_nl_path
 
 
 		#Call the CCL data
@@ -72,52 +73,52 @@ for i in range(len(trial_arr)):
 		#3 to 1 ratio between sizes of plots
 		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
 
-		fig = plt.figure()
-		ax1 = plt.subplot(gs[0])#, rowspan = 2)
-		ax1.plot(k_lin, ccl_lin, 'r', label='CCL')
-		ax1.plot(class_k_lin ,class_lin, 'b', label='CLASS')
-		ax1.tick_params(labeltop=False, labelright=True)
-		plt.xscale('log')
-		plt.yscale('log')
-		plt.legend()
-		ax2 = plt.subplot(gs[1])
-		ax2.plot(k_lin, np.abs(ccl_lin_err))
-		plt.xscale('log')
-		plt.yscale('log')
+#		fig = plt.figure()
+#		ax1 = plt.subplot(gs[0])#, rowspan = 2)
+#		ax1.plot(k_lin, ccl_lin, 'r', label='CCL')
+#		ax1.plot(class_k_lin ,class_lin, 'b', label='CLASS')
+#		ax1.tick_params(labeltop=False, labelright=True)
+#		plt.xscale('log')
+#		plt.yscale('log')
+#		plt.legend()
+#		ax2 = plt.subplot(gs[1])
+#		ax2.plot(k_lin, np.abs(ccl_lin_err))
+#		plt.xscale('log')
+#		plt.yscale('log')
 
 		#String manipulation
-		plot_lin_path = '/Users/penafiel/JPL/plots/lhs_stats_lin_%s' %trial
-		z_save_path = '_z%s.png' %z_val
-		plot_lin_path += z_save_path
+#		plot_lin_path = '/Users/penafiel/JPL/plots/lhs_stats_lin_%s' %trial
+#		z_save_path = '_z%s.png' %z_val
+#		plot_lin_path += z_save_path
 		
-		plt.savefig(plot_lin_path, format='png')
+#		plt.savefig(plot_lin_path, format='png')
 
-		plt.clf()
+#		plt.clf()
 
 		#For the nonlin case
 		#Get the error
 		ccl_nl_err = (ccl_nl - class_nl) / class_nl
-
-		fig = plt.figure()
-		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
-		ax1 = plt.subplot(gs[0])#, rowspan=2)
-		ax1.plot(k_nl, ccl_nl, 'r', label='CCL')
-		ax1.plot(class_k_nl , class_nl , 'b', label='CLASS')
-		plt.xscale('log')
-		plt.yscale('log')
-		plt.legend()
-		ax2 = plt.subplot(gs[1])
-		ax2.plot(k_nl, np.abs(ccl_nl_err))
-
-
-		plt.xscale('log')
-		plt.yscale('log')
+#		
+#		fig = plt.figure()
+#		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
+#		ax1 = plt.subplot(gs[0])#, rowspan=2)
+#		ax1.plot(k_nl, ccl_nl, 'r', label='CCL')
+#		ax1.plot(class_k_nl , class_nl , 'b', label='CLASS')
+#		plt.xscale('log')
+#		plt.yscale('log')
+#		plt.legend()
+#		ax2 = plt.subplot(gs[1])
+#		ax2.plot(k_nl, np.abs(ccl_nl_err))
+#
+#
+#		plt.xscale('log')
+#		plt.yscale('log')
 
 		#String manipulation
-		plot_nl_path = '/Users/penafiel/JPL/plots/lhs_stats_nl_%s' %trial
-		plot_nl_path += z_save_path
-		plt.savefig(plot_nl_path, format='png')
-	
+#		plot_nl_path = '/Users/penafiel/JPL/plots/lhs_stats_nl_%s' %trial
+#		plot_nl_path += z_save_path
+#		plt.savefig(plot_nl_path, format='png')
+
 		k_lin_list = k_lin.tolist()
 		k_lin_list = ['k'] + k_lin_list
 
@@ -140,7 +141,7 @@ for i in range(len(trial_arr)):
 		#Saves a txt file with he k values and the errors
 		np.savetxt(err_lin_path, np.transpose([k_lin_list, ccl_lin_err_list]), fmt='%-25s')
 		np.savetxt(err_nl_path, np.transpose([k_nl_list, ccl_nl_err_list]), fmt='%-25s')
-		plt.clf()
+		#plt.clf()
 
 #Do this for the precision files as well
 
@@ -153,6 +154,7 @@ for i in range(len(trial_arr)):
 	for j in range(len(z_vals)):
 		z_val = z_vals[j]
 		z_path = 'z%s_pk.dat' %z_val
+		z_nl_path = 'z%s_pk_nl.dat' %z_val
 		print 'Performing z_val = ', z_val
 		#For ease in iterating over different z values we use string manipulation (best manipulation)
 		ccl_lin_path = '/Users/penafiel/JPL/CCL-master/data_files/lhs_mpk_lin_pk_%s' %trial
@@ -163,7 +165,7 @@ for i in range(len(trial_arr)):
 		ccl_lin_path += z_path
 		ccl_nl_path += z_path
 		class_lin_path += z_path
-		class_nl_path += z_path
+		class_nl_path += z_nl_path
 
 
 		#Call the CCL data
@@ -198,54 +200,52 @@ for i in range(len(trial_arr)):
 		ccl_lin_err = (ccl_lin - class_lin) / class_lin
 
 		#3 to 1 ratio between sizes of plots
-		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
+#		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
 
-		fig = plt.figure()
-		ax1 = plt.subplot(gs[0])#, rowspan = 2)
-		ax1.plot(k_lin, ccl_lin, 'r', label='CCL')
-		ax1.plot(class_k_lin ,class_lin, 'b', label='CLASS')
-		ax1.tick_params(labeltop=False, labelright=True)
-		plt.xscale('log')
-		plt.yscale('log')
-		plt.legend()
-		ax2 = plt.subplot(gs[1])
-		ax2.plot(k_lin, np.abs(ccl_lin_err))
-		plt.xscale('log')
-		plt.yscale('log')
+#		fig = plt.figure()
+#		ax1 = plt.subplot(gs[0])#, rowspan = 2)
+#		ax1.plot(k_lin, ccl_lin, 'r', label='CCL')
+#		ax1.plot(class_k_lin ,class_lin, 'b', label='CLASS')
+#		ax1.tick_params(labeltop=False, labelright=True)
+#		plt.xscale('log')
+#		plt.yscale('log')
+#		plt.legend()
+#		ax2 = plt.subplot(gs[1])
+#		ax2.plot(k_lin, np.abs(ccl_lin_err))
+#		plt.xscale('log')
+#		plt.yscale('log')
 
 		#String manipulation
-		plot_lin_path = '/Users/penafiel/JPL/plots/lhs_stats_lin_pk_%s' %trial
-		z_save_path = '_z%s.png' %z_val
-		plot_lin_path += z_save_path
-		
-		plt.savefig(plot_lin_path, format='png')
-
-		plt.clf()
-
+#		plot_lin_path = '/Users/penafiel/JPL/plots/lhs_stats_lin_pk_%s' %trial
+#		z_save_path = '_z%s.png' %z_val
+#		plot_lin_path += z_save_path
+#		
+#		plt.savefig(plot_lin_path, format='png')
+#
+#		plt.clf()
 		#For the nonlin case
 		#Get the error
 		ccl_nl_err = (ccl_nl - class_nl) / class_nl
 
-		fig = plt.figure()
-		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
-		ax1 = plt.subplot(gs[0])#, rowspan=2)
-		ax1.plot(k_nl, ccl_nl, 'r', label='CCL')
-		ax1.plot(class_k_nl , class_nl , 'b', label='CLASS')
-		plt.xscale('log')
-		plt.yscale('log')
-		plt.legend()
-		ax2 = plt.subplot(gs[1])
-		ax2.plot(k_nl, np.abs(ccl_nl_err))
+#		fig = plt.figure()
+#		gs = gridspec.GridSpec(2,1, height_ratios=[3,1])
+#		ax1 = plt.subplot(gs[0])#, rowspan=2)
+#		ax1.plot(k_nl, ccl_nl, 'r', label='CCL')
+#		ax1.plot(class_k_nl , class_nl , 'b', label='CLASS')
+#		plt.xscale('log')
+#		plt.yscale('log')
+#		plt.legend()
+#		ax2 = plt.subplot(gs[1])
+#		ax2.plot(k_nl, np.abs(ccl_nl_err))
 
 
-		plt.xscale('log')
-		plt.yscale('log')
+#		plt.xscale('log')
+#		plt.yscale('log')
 
 		#String manipulation
-		plot_nl_path = '/Users/penafiel/JPL/plots/lhs_stats_nl_pk_%s' %trial
-		plot_nl_path += z_save_path
-		plt.savefig(plot_nl_path, format='png')
-	
+#		plot_nl_path = '/Users/penafiel/JPL/plots/lhs_stats_nl_pk_%s' %trial
+#		plot_nl_path += z_save_path
+#		plt.savefig(plot_nl_path, format='png')
 		k_lin_list = k_lin.tolist()
 		k_lin_list = ['k'] + k_lin_list
 
@@ -268,4 +268,4 @@ for i in range(len(trial_arr)):
 		#Saves a txt file with he k values and the errors
 		np.savetxt(err_lin_path, np.transpose([k_lin_list, ccl_lin_err_list]), fmt='%-25s')
 		np.savetxt(err_nl_path, np.transpose([k_nl_list, ccl_nl_err_list]), fmt='%-25s')
-		plt.clf()
+		#plt.clf()

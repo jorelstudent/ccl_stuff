@@ -111,7 +111,8 @@ def lhs_par_stan(n_trials):
 	num_trials_arr = num_trials(n_trials)
 	num_trials_list = num_trials_arr.tolist()
 	num_trials_list = ['Trial #'] + num_trials_list
-	np.savetxt('/Users/penafiel/JPL/data/par_stan.txt', np.transpose([num_trials_list, h_val_list, Omega_b_val_list, Omega_cdm_val_list, A_s_val_list, n_s_val_list]), fmt='%-20s')
+	np.savetxt('/Users/penafiel/JPL/data/par_stan1.csv', np.transpose([num_trials_list, h_val_list, Omega_b_val_list, Omega_cdm_val_list, A_s_val_list, n_s_val_list]), fmt='%-20s')
+
 	return h_val_list, Omega_b_val_list, Omega_cdm_val_list, A_s_val_list, n_s_val_list
 
 
@@ -192,7 +193,7 @@ def lhs_par_ext(n_trials):
 if __name__ == "__main__":
 	n_trials = 100
 	lhs_par_stan(n_trials)
-	lhs_par_ext(n_trials)
+	#lhs_par_ext(n_trials)
 
 
 #pdb.set_trace()

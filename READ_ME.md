@@ -53,4 +53,12 @@ different colors, just change the path, to the specific data files, then you sho
 	comp_stats_v4.py generates your summary statistics with a better metric, as well as generate your corner plots
 	corner_source.py has the definitions for your corner plots, it's been altered so that it does scatter plots
 
+	There's also an interface folder now
+	This has the most recent copy of homepage.py
+	All you will need to do is fix the paths, but the filenames should all be the same
+	Make sure you have the proper modules downloaded, mostly bokeh and flask
+	And that should be it
+	homepage.py is your friend
+
+
 FOR ALL OF THESE MAKE SURE TO CHANGE THE PATHS TO THE PROPER ONES
